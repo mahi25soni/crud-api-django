@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'enroll/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'enroll/css/style.css' %}">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="heading text-center alert alert-warning">
+            <h1>Update this</h1>
+        </div>
+        <div>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {% for x in form %}
+                  <strong>{{x.label}}</strong><br>{{x}} <br>
+                {% endfor %}
+                <input type="submit" value="Enter" class="btn btn-primary" style="margin-top:4px; float: inline-start;">
+              </form>
+        </div>
+   
+        
+    </div>
+
+    <script src="{% static 'enroll/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'enroll/js/jquery.js' %}"></script>
+    <script src="{% static 'enroll/js/popper.js' %}"></script>
+</body>
+
+</html>

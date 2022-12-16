@@ -1,0 +1,11 @@
+body {
+    background-color: rgb(211, 211, 211);
+}
+.heading{
+    font-size: large;
+    font-weight: 700;
+    margin-top: 50px;
+}
+.show{ 
+    margin-top: 35px;
+}

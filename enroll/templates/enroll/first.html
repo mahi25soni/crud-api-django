@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'enroll/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'enroll/css/style.css' %}">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="heading text-center alert alert-warning">
+            <h1>This is Base-Class Based CRUD</h1>
+        </div>
+        <div style="display:flex">
+            <div class="show" style="margin-left:100px; flex:2">
+            <h2 class="text-center alert alert-primary">Add New Student</h2>
+
+                  <form action="" method="POST">
+                    {% csrf_token %}
+                    {% for x in form %}
+                      <strong>{{x.label}}</strong><br>{{x}}
+                    {% endfor %}
+                    <input type="submit" value="Enter" class="btn btn-primary" style="margin-top:4px; float: inline-start;">
+                  </form>
+            </div>
+            <div class="show" style="flex: 3; margin-left: 50px;">
+            <h2 class="text-center alert alert-primary">Show Student Imformation</h2>
+
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Password</th>
+                      <th scope="col">Options</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for object in objects %}
+                    <tr>
+                      <th scope="row">{{object.id}}</th>
+                      <td>{{object.name}}</td>
+                      <td>{{object.email}}</td>
+                      <td>{{object.password}}</td>
+                      <td>
+                        <a href="{% url 'edit' pk=object.id %}"><button class="btn btn-outline-success">Edit</button></a>
+                        <a href="{% url 'delete' pk=object.id %}"><button class="btn btn-outline-danger">Delete</button></a>
+
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+            </div>
+          </div>
+    </div>
+
+    <script src="{% static 'enroll/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'enroll/js/jquery.js' %}"></script>
+    <script src="{% static 'enroll/js/popper.js' %}"></script>
+</body>
+
+</html>
